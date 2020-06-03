@@ -1,0 +1,39 @@
+.wrap{
+    display: block;
+    width: 100%;
+}
+.label{
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    width: 100%;
+}
+.input{
+    display: none;
+}
+.styledCheckbox{
+    position: relative;
+    padding-left: 30px;
+}
+.styledCheckbox:before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    border: 1px solid #999;
+}
+.input:checked + .styledCheckbox:after{
+    content: "";
+    width: 8px;
+    height: 12px;
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    border-bottom: 2px solid #9db94b;
+    border-right: 2px solid #9db94b;
+    transform: rotate(45deg);
+}

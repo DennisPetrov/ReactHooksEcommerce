@@ -1,0 +1,52 @@
+.buttons{
+    display: flex;
+    align-items: center;
+}
+.compare_btn{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-right: 15px;
+    color: #9db94b;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity .3s;
+}
+.compare_btn:hover,
+.compare_btn_active{
+    opacity: 1;
+}
+.favorites_btn{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-right: 15px;
+    cursor: pointer;
+    opacity: 0.5;
+    color: #fc8507;
+    transition: opacity .3s;
+}
+.favorites_btn:hover,
+.favorites_btn_actve{
+    opacity: 1;
+}
+.cart_btn{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    background-color: #e8e8e8;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+.cart_btn:hover,
+.cart_btn_active{
+    opacity: 1;
+    background-color: #9db94b;
+    color: #fff;
+}
+.cart_btn img{
+    max-width: 35px;
+}

@@ -1,0 +1,37 @@
+.buttonReset{
+    appearance: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+}
+.btn{
+    appearance: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    background-color: #9db94b;
+    border: 1px solid #9db94b;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    min-width: 180px;
+    transition: border-color .3s, background-color .3s, color .3s;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #9db94b;
+}
+.btn_transparent{
+
+}
+.btn_fullWidth{
+    width: 100%;
+}

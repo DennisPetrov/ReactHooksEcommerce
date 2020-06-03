@@ -1,0 +1,35 @@
+.wrap{
+    margin-bottom: 20px;
+}
+.viewType{
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.viewType__item{
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    background-color: #e8e8e8;
+    margin-right: 15px;
+}
+.viewType__item_active{
+    background-color: #373737;
+    color: #e8e8e8;
+}
+.selectWrap{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.selectWrap label{
+    margin-right: 10px;
+    white-space: nowrap;
+    margin-bottom: 0;
+    width: auto;
+}

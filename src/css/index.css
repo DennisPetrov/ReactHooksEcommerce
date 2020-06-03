@@ -1,0 +1,77 @@
+@import-normalize;
+
+body, html{
+  min-width: 320px;;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "PT Sans";
+    font-size: 16px;
+    line-height: 1.33333;
+    font-weight: 300;
+    color: #333;
+}
+
+img,
+iframe,
+video{
+    max-width: 100%;
+}
+
+a{
+  color: #373737;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.container-max-width{
+  max-width: 1170px;
+}
+
+.buttonReset{
+  appearance: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.btn{
+  appearance: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  background-color: #9db94b;
+  border: 2px solid #9db94b;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  min-width: 180px;
+  transition: border-color .3s, background-color .3s, color .3s;
+}
+.btn:hover{
+  background-color: #fff;
+  color: #9db94b;
+}
+.btn_transparent{
+  border-color: #e8e8e8;
+  background-color: transparent;
+  color: #333;
+}
+.btn_transparent:hover{
+  background-color: #e8e8e8;
+  color: #333;
+}
+.btn_fullWidth{
+  width: 100%;
+}
+.errorMessage{
+  color: #f00;
+}
