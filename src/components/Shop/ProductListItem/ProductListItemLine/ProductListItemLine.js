@@ -4,9 +4,6 @@ import ProductButtons from '../../ProductButtons/ProductButtons';
 import { Link } from 'react-router-dom';
 
 const ProductListItemLine = ({product}) => {
-    const inCompare = false;
-    const inFavorites = false;
-    const inCart = false;
     return (
         <div className={classes.wrap}>
             <Link to={product.link} className={classes.image_wrap}>
@@ -26,9 +23,7 @@ const ProductListItemLine = ({product}) => {
                         {product.price} $
                 </div>
                     <ProductButtons
-                        inCompare={inCompare}
-                        inFavorites={inFavorites}
-                        inCart={inCart}
+                        productID={product.id}
                     />
                 </div>
             </div>

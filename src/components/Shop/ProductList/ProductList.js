@@ -28,7 +28,7 @@ const ProductList = ({ products, viewType, isLoading, error }) => {
         <div className={outerClass}>
             {!products && isLoading && <Loading />}
             {!isLoading && error &&
-                <p className="errorMessage">
+                <p className={classes.errorMessage}>
                     {error}
                 </p>
             }

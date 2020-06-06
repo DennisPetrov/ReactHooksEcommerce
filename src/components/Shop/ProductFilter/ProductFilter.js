@@ -8,88 +8,7 @@ import classes from './ProductFilter.module.css';
 import { useLocation } from 'react-router-dom';
 
 
-function generateFilterRequest(filters, filterState) {
-    let result = {};
-    if (filterState) {
-        for (const prop in filters) {
-            if (filters.hasOwnProperty(prop)) {
-                const element = filters[prop];
-                switch (element.type) {
-                    case "checkbox":
-                    default:
-                        let checkedVals = element.values.filter((value) => filterState[prop + "-" + value]);
-                        if (checkedVals.length) {
-                            result[prop] = checkedVals;
-                        }
-                }
-            }
-        }
-    }
-    return result;
-}
-function createFiltersState(filters, searchString = "") {
-    let result = {};
-    const searchParams = searchString ? parse(searchString) : {};
-    for (const prop in filters) {
-        if (filters.hasOwnProperty(prop)) {
-            const element = filters[prop];
-            switch (element.type) {
-                case "checkbox":
-                default:
-                    element.values.forEach(value => {
-                        let checked = false;
-                        if (searchParams[prop]) {
-                            if (Array.isArray(searchParams[prop])) {
-                                checked = searchParams[prop].includes(value);
-                            } else {
-                                checked = searchParams[prop] === value;
-                            }
-                        }
-                        result[prop + "-" + value] = checked;
-                    });
-            }
-        }
-    }
-    return result;
-}
 
-const filterInputsReducer = (state, action) => {
-    switch (action.type) {
-        case "INIT_INPUTS":
-            return createFiltersState(action.payload.filters, action.payload.searchString);
-        case "UPDATE_CHECKBOX":
-            return {
-                ...state,
-                [action.payload]: !state[action.payload]
-            }
-        case "RESET_FILTER":
-            return createFiltersState(action.payload);
-        default:
-            return state;
-    }
-}
-const triggersReducer = (state, action) => {
-    switch (action.type) {
-        case "INIT_TRIGGERS":
-            const initialState = {};
-            const searchParams = parse(action.payload.searchString);
-            for (const key in action.payload.filters) {
-                let open = false;
-                if (searchParams[key]) {
-                    open = true;
-                }
-                initialState[key] = open;
-            }
-            return initialState;
-        case "SWITCH_TRIGGER":
-            return {
-                ...state,
-                [action.payload]: !state[action.payload],
-            }
-        default:
-            return state;
-    }
-}
 const ProductFilter = ({ filters, isLoading, error, updateFilter }) => {
     const [filterState, dispatch] = useReducer(filterInputsReducer, {});
     const [triggersState, dispatchTriggers] = useReducer(triggersReducer, {});
@@ -153,13 +72,6 @@ const ProductFilter = ({ filters, isLoading, error, updateFilter }) => {
 
 
     useEffect(() => {
-        dispatch({
-            type: "INIT_INPUTS",
-            payload: {
-                filters: filters,
-                searchString: requestParams.search,
-            }
-        });
         dispatchTriggers({
             type: "INIT_TRIGGERS",
             payload: {
@@ -167,7 +79,14 @@ const ProductFilter = ({ filters, isLoading, error, updateFilter }) => {
                 searchString: requestParams.search,
             }
         });
-    }, [filters]);
+        dispatch({
+            type: "INIT_INPUTS",
+            payload: {
+                filters: filters,
+                searchString: requestParams.search,
+            }
+        });
+    }, [filters, requestParams.search]);
 
     useEffect(() => {
         return () => {
@@ -251,3 +170,92 @@ const ProductFilter = ({ filters, isLoading, error, updateFilter }) => {
 };
 
 export default ProductFilter;
+
+function generateFilterRequest(filters, filterState) {
+    let result = {};
+    if (filterState) {
+        for (const prop in filters) {
+            if (filters.hasOwnProperty(prop)) {
+                const element = filters[prop];
+                switch (element.type) {
+                    case "checkbox":
+                    default:
+                        let checkedVals = element.values.filter((value) => filterState[prop + "-" + value]);
+                        if (checkedVals.length) {
+                            result[prop] = checkedVals;
+                        }
+                }
+            }
+        }
+    }
+    return result;
+}
+function createFiltersState(filters, searchString = "") {
+    let result = {};
+    const searchParams = searchString ? parse(searchString) : {};
+    for (const prop in filters) {
+        if (filters.hasOwnProperty(prop)) {
+            const element = filters[prop];
+            switch (element.type) {
+                case "checkbox":
+                default:
+                    element.values.forEach(value => {
+                        let checked = false;
+                        if (searchParams[prop]) {
+                            if (Array.isArray(searchParams[prop])) {
+                                checked = searchParams[prop].includes(value);
+                            } else {
+                                checked = searchParams[prop] === value;
+                            }
+                        }
+                        result[prop + "-" + value] = checked;
+                    });
+            }
+        }
+    }
+    return result;
+}
+
+function filterInputsReducer(state, action){
+    switch (action.type) {
+        case "INIT_INPUTS":
+            if(Object.keys(state).length !== 0){
+                return state;
+            }
+            return createFiltersState(action.payload.filters, action.payload.searchString);
+        case "UPDATE_CHECKBOX":
+            return {
+                ...state,
+                [action.payload]: !state[action.payload]
+            }
+        case "RESET_FILTER":
+            return createFiltersState(action.payload);
+        default:
+            return state;
+    }
+}
+function triggersReducer(state, action) {
+    switch (action.type) {
+        case "INIT_TRIGGERS":
+            if(Object.keys(state).length !== 0){
+                return state;
+            }
+            const initialState = {};
+            const searchParams = parse(action.payload.searchString);
+            for (const key in action.payload.filters) {
+                let open = false;
+                if (searchParams[key]) {
+                    open = true;
+                }
+                initialState[key] = open;
+            }
+            return initialState;
+        case "SWITCH_TRIGGER":
+            return {
+                ...state,
+                [action.payload]: !state[action.payload],
+            }
+        default:
+            return state;
+    }
+}

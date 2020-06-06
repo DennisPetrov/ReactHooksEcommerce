@@ -27,7 +27,7 @@
     transition: opacity .3s;
 }
 .favorites_btn:hover,
-.favorites_btn_actve{
+.favorites_btn_active{
     opacity: 1;
 }
 .cart_btn{
