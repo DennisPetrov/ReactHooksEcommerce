@@ -1,0 +1,12 @@
+.wrap{
+    display: block;
+    text-align: center;
+}
+.errorName{
+    font-weight: 700;
+    font-size: 21px;
+    text-align: center;
+}
+.errorDescription{
+    text-align: center;
+}

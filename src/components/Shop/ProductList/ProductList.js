@@ -29,7 +29,7 @@ const ProductList = ({ products, viewType, isLoading, error }) => {
             {!products && isLoading && <Loading />}
             {!isLoading && error &&
                 <p className={classes.errorMessage}>
-                    {error}
+                    {error.message}
                 </p>
             }
             {!isLoading && !error && products && !products.length &&

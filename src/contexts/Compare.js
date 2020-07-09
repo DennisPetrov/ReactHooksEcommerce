@@ -3,7 +3,6 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 
 const reducer = (state, action) => {
-    console.log(action);
     let newState = [
         ...state
     ];

@@ -1,5 +1,9 @@
 import Home from "../pages/Home"
-import StaticPage from "../pages/StaticPage"
+import StaticPage from "../pages/StaticPage/StaticPage"
+import ComparePage from "../pages/ComparePage/ComparePage"
+import FavoritesPage from "../pages/FavoritesPage/FavoritesPage"
+import ProductPage from "../pages/ProductPage/ProductPage"
+
 
 const pages = {
     home: {
@@ -22,15 +26,15 @@ const pages = {
     },
     compare: {
         url: '/compare/',
-        component: StaticPage,
+        component: ComparePage,
         displayInMenu: false,
         name: 'Compare list',
     },
     favorites: {
         url: '/favorites/',
-        component: StaticPage,
+        component: FavoritesPage,
         displayInMenu: false,
-        name: 'Favorits',
+        name: 'Favorites',
     },
     cart: {
         url: '/cart/',
@@ -46,9 +50,14 @@ const pages = {
     },
     categoryDetail: {
         url: '/product/:slug',
-        component: Home,
+        component: ProductPage,
         displayInMenu: false,
         name: 'Product detail',
+    },
+    any: {
+        url: "",
+        component: StaticPage,
+        displayInMenu: false,
     },
 }
 

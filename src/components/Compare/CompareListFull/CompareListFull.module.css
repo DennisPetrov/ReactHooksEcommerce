@@ -1,0 +1,43 @@
+.wrap{
+    overflow: auto;
+    width: 100%;
+}
+.frame{
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+.cell{
+    display: table-cell;
+    border: 1px solid #e8e8e8;
+    padding: 8px;
+    vertical-align: middle;
+    text-align: center;
+    min-width: 150px;
+}
+.cellTitle{
+    font-weight: 700;
+    min-width: 90px;
+}
+.row{
+    display: table-row;
+}
+.productTitle{
+    font-weight: 700;
+}
+.productImageHolder{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.productImage{
+    max-height: 100%;
+}
+.buttonsCell{
+    text-align: center;
+}
+.controlsWrap{
+    margin-bottom: 25px;
+}

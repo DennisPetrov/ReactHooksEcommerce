@@ -5,7 +5,7 @@ import CartContext from '../../../contexts/Cart';
 import FavoritesContext from '../../../contexts/Favorites';
 import CompareContext from '../../../contexts/Compare';
 
-const ProductButtons = ({ productID }) => {
+const ProductButtons = ({ productID, wrapClass }) => {
     const [cartItems, dispatchCart] = useContext(CartContext);
     const [favoriteItems, dispatchFavorites] = useContext(FavoritesContext);
     const [compareItems, dispatchCompare] = useContext(CompareContext);
@@ -15,7 +15,7 @@ const ProductButtons = ({ productID }) => {
     const inCart = cartItems[productID];
 
     return (
-        <div className={classes.buttons}>
+        <div className={classnames(classes.buttons, wrapClass)}>
             <button
                 onClick={() => {
                     dispatchCompare({
@@ -40,7 +40,10 @@ const ProductButtons = ({ productID }) => {
                 onClick={() => {
                     dispatchCart({
                         type: "ADD_TO_CART",
-                        payload: productID,
+                        payload: {
+                            id: productID,
+                            count: 1,
+                        },
                     })
                 }}
                 className={classnames('buttonReset', classes.cart_btn, { [classes.cart_btn_active]: inCart })}>

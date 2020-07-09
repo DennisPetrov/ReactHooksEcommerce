@@ -6,18 +6,20 @@ const reducer = (state, action) => {
         ...state
     };
     switch (action.type) {
-        case "ADD_TO_CART":
-            newState[action.payload] = state[action.payload] ? state[action.payload] + 1 : 1;
+        case "ADD_TO_CART":{
+            const count = Number(action.payload.count);
+            newState[action.payload.id] = state[action.payload.id] ? state[action.payload.id] + count : count;
             return newState;
-        case "REDUCE_AMOUNT":
-            if(newState[action.payload]){
-                if(newState[action.payload] === 1){
-                    delete newState[action.payload];
-                }else{
-                    newState[action.payload]--;
-                }
+        }
+        case "SET_QUANTITY":{
+            const count = Number(action.payload.count);
+            if((!count || count < 1) && newState[action.payload.id]){
+                delete newState[action.payload.id];
+            }else{
+                newState[action.payload.id] = count;
             }
             return newState;
+        }
         case "REMOVE_FROM_CART":
             if(newState[action.payload]){
                 delete newState[action.payload];

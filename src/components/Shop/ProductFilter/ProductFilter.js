@@ -106,7 +106,7 @@ const ProductFilter = ({ filters, isLoading, error, updateFilter }) => {
             {!filters && isLoading && <Loading />}
             {!isLoading && error &&
                 <p className={classes.error}>
-                    {error}
+                    {error.message}
                 </p>
             }
             {Object.keys(filterState).length !== 0 &&

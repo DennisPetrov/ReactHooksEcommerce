@@ -1,0 +1,85 @@
+.topSection{
+    margin-top: 22px;
+    margin-bottom: 50px;
+}
+.controlsWrap{
+    margin-top: 22px;
+    margin-bottom: 22px;
+    align-items: center;
+    display: flex;
+}
+.mainPrice{
+    font-size: 21px;
+    font-weight: 700;
+    margin-right: 25px;
+}
+.mainImageWrap{
+    border: 1px solid #e8e8e8;
+    padding: 15px;
+    text-align: center;
+}
+.mainImage{
+    max-height: 420px;
+}
+
+.buttonsWrap{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 150px;
+}
+.specsWrap{
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+.specsItem{
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.specsMain{
+    max-width: 250px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+}
+.specsName{
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.specsMainLink{
+    text-decoration: underline;
+    font-weight: 700;
+}
+.specsMainHead{
+    display: flex;
+    justify-content: space-between;
+}
+.specsMainLink:hover{
+    text-decoration: none;
+}
+.stock{
+    font-weight: 700;
+}
+.dots{
+    border-bottom: dotted 1px #000;
+    flex-grow: 1;
+    position: relative;
+    top: -5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.specsValue{
+
+}
+@media only screen and (max-width: 767px){
+    .mainTitle{
+        font-size: 21px;
+    }
+    .controlsWrap{
+        display: block;
+    }
+    .mainPrice{
+        margin-bottom: 20px;
+    }
+}

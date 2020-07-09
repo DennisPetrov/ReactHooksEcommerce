@@ -1,0 +1,42 @@
+.wrap{
+    width: 100%;
+}
+.products{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.buttonsWrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.buttonsWrap button{
+    min-width: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+}
+.productItem{
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.image_wrap{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image_wrap img{
+    max-height: 50px;
+}
+.title{
+font-size: 12px;
+padding-left: 10px;
+padding-right: 10px;
+flex-grow: 1;
+}

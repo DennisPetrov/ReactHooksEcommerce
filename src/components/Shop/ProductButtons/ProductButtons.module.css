@@ -1,6 +1,7 @@
 .buttons{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .compare_btn{
     width: 20px;

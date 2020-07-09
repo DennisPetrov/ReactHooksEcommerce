@@ -25,10 +25,9 @@ export default url => {
                     setResponse(res.data);
                 }
             }).catch(error =>{
-                console.log(error.message);
                 if(!skipGetResponseAfterDestroy){
                     setIsLoading(false);
-                    setError(error.message)
+                    setError(error)
                 }
             })
         }else{
